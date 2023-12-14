@@ -25,7 +25,7 @@ public class Maths {
     public static double vectorMulty(Point vector1, Point vector2) {
         double i = Math.pow(vector1.getCoordinateY() * vector2.getCoordinateZ() - vector1.getCoordinateZ() * vector2.getCoordinateY(), 2);
         double j = Math.pow(vector1.getCoordinateX() * vector2.getCoordinateZ() - vector1.getCoordinateZ() * vector2.getCoordinateX(), 2);
-        double k = Math.pow(vector1.getCoordinateX() * vector2.getCoordinateZ() - vector1.getCoordinateZ() * vector2.getCoordinateX(), 2);
+        double k = Math.pow(vector1.getCoordinateX() * vector2.getCoordinateY() - vector1.getCoordinateY() * vector2.getCoordinateX(), 2);
 
         double result = Math.abs(Math.sqrt(i + j + k));
         return result;

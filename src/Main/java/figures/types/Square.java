@@ -52,7 +52,7 @@ public class Square extends Polygon {
     @Override
     public double areaOfFigure() {
         double ar = Math.pow(side, 2);
-        System.out.printf("The figure area is $.2f\n", ar);
+        System.out.printf("The figure area is %.2f\n", ar);
         return ar;
     }
 }
