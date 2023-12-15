@@ -1,12 +1,12 @@
 package Main.java.figures.auxiliary;
 
 import java.util.ArrayList;
-import java.lang.*;
+import java.util.*;
 
 public class Maths {
     public static double strangerLength(ArrayList<Object> coords) {
-        Point point1 = (Point) coords.get(1);
-        Point point2 = (Point) coords.get(0);
+        Point point1 = (Point)coords.get(1);
+        Point point2 = (Point)coords.get(0);
         double x = Math.pow(point1.getCoordinateX() - point2.getCoordinateX(), 2);
         double y = Math.pow(point1.getCoordinateY() - point2.getCoordinateY(), 2);
         double z = Math.pow(point1.getCoordinateZ() - point2.getCoordinateZ(), 2);
@@ -31,9 +31,8 @@ public class Maths {
         return result;
     }
 
-    public static Point vectorMarker(Point point1, Point point2) {
+    public static Point vectorMaker(Point point1, Point point2) {
         Point vector = new Point(point1.getCoordinateX() - point2.getCoordinateX(), point1.getCoordinateY() - point2.getCoordinateY(), point1.getCoordinateZ() - point2.getCoordinateZ());
-
         return vector;
     }
 

@@ -21,9 +21,11 @@ public class Sphere extends Figure {
             lengthOf = Maths.strangerLength(coords);
             return true;
         }
+
         System.out.println("The figure is invalid");
         return false;
     }
+
     @Override
     public double areaOfFigure() {
         double ar = Consts.FOUR * PI * Math.pow(lengthOf, 2);

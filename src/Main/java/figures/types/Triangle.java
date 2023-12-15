@@ -16,13 +16,14 @@ public class Triangle extends Figure {
             System.out.println("The figure is valid");
             return true;
         }
+
         System.out.println("The figure is invalid");
         return false;
     }
 
     public double perimetr() {
-        Point vector1 = Maths.vectorMarker((Point)coords.get(1), (Point)coords.get(0));
-        Point vector2 = Maths.vectorMarker((Point)coords.get(1), (Point)coords.get(2));
+        Point vector1 = Maths.vectorMaker((Point)coords.get(1), (Point)coords.get(0));
+        Point vector2 = Maths.vectorMaker((Point)coords.get(1), (Point)coords.get(2));
 
         double per = Maths.vectorMulty(vector1, vector2);
         System.out.printf("The figure perimetr is %.2f\n", per);

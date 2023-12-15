@@ -30,6 +30,7 @@ public class Rectangle extends Figure {
                         indexMainPoint = t;
                     }
                 }
+
                 ArrayList<Object> coords2 = new ArrayList<>();
 
                 for (int t = 0; t < coords.size(); ++t) {
@@ -37,6 +38,7 @@ public class Rectangle extends Figure {
                         coords2.add((Point)coords.get(t));
                     }
                 }
+
                 rectangular = Maths.rectangular((Point)coords2.get(0), (Point)coords2.get(1), (Point)coords2.get(2));
                 if (rectangular != null) {
                     theRightCoords.add(rectangular);
@@ -51,11 +53,13 @@ public class Rectangle extends Figure {
                             theRightCoords.add((Point)coords2.get(t));
                         }
                     }
+
                     pole = new Polygon(theRightCoords);
                     return pole.checkOfValid();
                 }
             }
         }
+
         System.out.println("The figure is invalid");
         return false;
     }
@@ -78,7 +82,7 @@ public class Rectangle extends Figure {
         double d = Maths.strangerLength((Point)coords.get(0), (Point)coords.get(3));
 
         double per = a + b + c + d;
-        System.out.printf("The figure perimetr id %.2f\n", per);
+        System.out.printf("The figure perimetr is %.2f\n", per);
         return per;
     }
 }

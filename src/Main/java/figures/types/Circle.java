@@ -14,7 +14,7 @@ public class Circle extends Figure {
 
     public boolean checkOfValid() {
         if (coords != null && coords.size() == 2) {
-            System.out.println("The figure is valid!");
+            System.out.println("The figure is valid");
             lengthOf = Maths.strangerLength(coords);
             return true;
         }

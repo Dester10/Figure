@@ -1,11 +1,11 @@
 package Main.java.figures.types;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class Figure {
     public Figure(ArrayList<Object> coords) {
     }
+
     public boolean checkOfValid() {
         System.out.println("The figure is figure");
         return true;

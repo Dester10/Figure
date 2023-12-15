@@ -1,6 +1,6 @@
 package Main.java.figures.types;
 
-import Main.java.figures.auxiliary.Point;
+import  Main.java.figures.auxiliary.Point;
 import Main.java.figures.auxiliary.Maths;
 import Main.java.figures.consts.Consts;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ public class Parallelogram extends Polygon {
     private static final Stack<Object> coordsIdStack = new Stack<>();
     private static int indexOfLefterX = 0;
 
-    public Parallelogram (ArrayList<Object> coords) {
+    public Parallelogram(ArrayList<Object> coords) {
         super(coords);
         this.coords = coords;
     }
@@ -32,7 +32,7 @@ public class Parallelogram extends Polygon {
 
             double length23 = Maths.strangerLength(theSecond, theThird);
             double length43 = Maths.strangerLength(theFourth, theThird);
-            double length24 = Maths.strangerLength(theFourth, theSecond);
+            double length24 = Maths.strangerLength(theSecond, theFourth);
 
             if (length24 >= length3 || length23 != length4 || length2 != length43 || length3 < length2 || length3 < length23 || length3 < length43 || length3 < length4) {
                 System.out.println("The figure is invalid");

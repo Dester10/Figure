@@ -11,9 +11,11 @@ public class Main {
     public static Scanner scanner = new Scanner(System.in);
     public static String figure = "";
     public static void main(String[] args) {
+        figure = scanner.nextLine();
         boolean check1 = true;
         boolean check2 = true;
         String[] fig = new String[]{"FIGURE", "CIRCLE", "SQUARE", "RECTANGLE", "PARALLELOGRAM", "TRIANGLE", "POLYGON", "SPHERE", "TRUNCATED_SPHERE", "CYLINDER", "CONE", "END"};
+
         while (check2) {
             for (int t = 0; t < fig.length; ++t) {
                 if (figure.equals(fig[t])) {
@@ -46,7 +48,7 @@ public class Main {
         boolean check = true;
         String getting = "";
         Pattern pXY = Pattern.compile("(0|(-?)[1-9]+[0-9]*) (0|(-?)[1-9]+[0-9]*)");
-        Pattern pXYZ = Pattern.compile("(0|(-?)[1-9]+[0-9]*) (0|(-?)[1-9]+[0-9]*){2}");
+        Pattern pXYZ = Pattern.compile("(0|(-?)[1-9]+[0-9]*)( 0|(-?)[1-9]+[0-9]*){2}");
         while (check) {
             getting = scanner.nextLine();
             Matcher mXY = pXY.matcher(getting);
@@ -62,7 +64,7 @@ public class Main {
             } else if (getting.equals("STOP_INPUT")) {
                 check = false;
             } else {
-                System.out.println("Please, retype. \nIf you end, write \"STOP_INPUT\"");
+                System.out.println("Please, retype.\nIf you end, write \"STOP_INPUT\"");
             }
         }
         return coords;
@@ -83,10 +85,11 @@ public class Main {
             case "CYLINDER" -> figureMade = new Cylinder(points);
             case "CONE" -> figureMade = new Cone(points);
             default -> {
-                System.out.println("Please, retype the name of your figure. \nRemember, you can write \"FIGURE\", \"CIRCLE\", \"SQUARE\", \"RECTANGLE\", \"PARALLELOGRAM\", \"TRIANGLE\", \"POLYGON\", \"SPHERE\", \"TRUNCATED_SPHERE\", \"CYLINDER\", \"CONE\"");
+                System.out.println("Please, retype the name of your figure.\nRemember, you can write \"FIGURE\", \"CIRCLE\", \"SQUARE\", \"RECTANGLE\", \"PARALLELOGRAM\", \"TRIANGLE\", \"POLYGON\", \"SPHERE\", \"TRUNCATED_SPHERE\", \"CYLINDER\", \"CONE\"");
                 figure = scanner.next();
             }
         }
+
         return figureMade;
     }
 }

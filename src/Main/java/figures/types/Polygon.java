@@ -23,19 +23,19 @@ public class Polygon extends Figure {
         if (coords != null && coords.size() > 2) {
             whichIsLefterAndHigher();
 
-            mainPoint = (Point) coords.get(indexOfLefterX);
-            Point theSecond = (Point) coords.get(0);
-            Point theThird = (Point) coords.get(1);
+            mainPoint = (Point)coords.get(indexOfLefterX);
+            Point theSecond = (Point)coords.get(0);
+            Point theThird = (Point)coords.get(1);
 
             Point mainVector = new Point(theSecond.getCoordinateX() - mainPoint.getCoordinateX(), theSecond.getCoordinateY() - mainPoint.getCoordinateY(), theSecond.getCoordinateZ() - mainPoint.getCoordinateZ());
             Point secondMainVector = new Point(theThird.getCoordinateX() - mainPoint.getCoordinateX(), theThird.getCoordinateY() - mainPoint.getCoordinateY(), theThird.getCoordinateZ() - mainPoint.getCoordinateZ());
             for (int t = 2; t < coords.size(); ++t) {
                 if (t != indexOfLefterX) {
-                    Point otherPoint = (Point) coords.get(t);
-                    Point otherVector = Maths.vectorMarker(otherPoint, mainPoint);
+                    Point otherPoint = (Point)coords.get(t);
+                    Point otherVector = Maths.vectorMaker(otherPoint, mainPoint);
 
                     int rez1 = mainVector.getCoordinateX() * secondMainVector.getCoordinateY() * otherVector.getCoordinateZ() + mainVector.getCoordinateY() * secondMainVector.getCoordinateZ() * otherVector.getCoordinateX() + mainVector.getCoordinateZ() * secondMainVector.getCoordinateX() * otherVector.getCoordinateY();
-                    int rez2 = mainVector.getCoordinateZ() * secondMainVector.getCoordinateY() * otherVector.getCoordinateX() + mainVector.getCoordinateY() * secondMainVector.getCoordinateX() * otherVector.getCoordinateZ() + mainVector.getCoordinateX() * secondMainVector.getCoordinateZ() * otherVector.getCoordinateY();
+                    int rez2 = - mainVector.getCoordinateZ() * secondMainVector.getCoordinateY() * otherVector.getCoordinateX() - mainVector.getCoordinateY() * secondMainVector.getCoordinateX() * otherVector.getCoordinateZ() + mainVector.getCoordinateX() * secondMainVector.getCoordinateZ() * otherVector.getCoordinateY();
 
                     if (rez1 + rez2 != 0) {
                         System.out.println("The figure is invalid");
@@ -56,7 +56,7 @@ public class Polygon extends Figure {
         int higherY;
 
         for (int t = 0; t < coords.size(); ++t) {
-            Point point = (Point) coords.get(t);
+            Point point = (Point)coords.get(t);
             if (point.getCoordinateX() < lefterX) {
                 lefterX = point.getCoordinateX();
                 indexOfLefterX = t;
@@ -68,15 +68,16 @@ public class Polygon extends Figure {
             int xOfHigherY = Consts.DEVIL_MAX;
             higherY = -Consts.DEVIL_MAX;
             for (int t = 0; t < coordsForHigher.size() - 1; ++t) {
-                Point point = (Point) coordsForHigher.get(t);
+                Point point = (Point)coordsForHigher.get(t);
                 if (point.getCoordinateY() > higherY && t != indexOfLefterX) {
                     higherY = point.getCoordinateY();
                     indexOfHigherY = t;
                     xOfHigherY = point.getCoordinateX();
                 }
             }
+
             for (int m = 0; m < coordsForHigher.size(); ++m) {
-                Point point2 = (Point) coordsForHigher.get(m);
+                Point point2 = (Point)coordsForHigher.get(m);
                 if (point2.getCoordinateY() == higherY && xOfHigherY < point2.getCoordinateX()) {
                     higherY = point2.getCoordinateY();
                     indexOfHigherY = m;
@@ -92,13 +93,13 @@ public class Polygon extends Figure {
 
     @Override
     public double perimetr() {
-        Point special1 = (Point) coordsIdStack.peek();
+        Point special1 = (Point)coordsIdStack.peek();
         double per = Maths.strangerLength(special1, mainPoint);
         Point special2 = new Point(0, 0, 0);
 
         for (int t = 0; t < coordsIdStack.size(); ++t) {
-            special1 = (Point) coordsIdStack.pop();
-            special2 = (Point) coordsIdStack.peek();
+            special1 = (Point)coordsIdStack.pop();
+            special2 = (Point)coordsIdStack.peek();
             per += Maths.strangerLength(special1, special2);
         }
 
@@ -114,10 +115,9 @@ public class Polygon extends Figure {
 
         for (int t = 0; t < coords.size() - 2; ++t) {
             special = (Point)coordsIdStack2.pop();
-            Point vector1 = Maths.vectorMarker(special, mainPoint);
+            Point vector1 = Maths.vectorMaker(special, mainPoint);
             special = (Point)coordsIdStack2.peek();
-            Point vector2 = Maths.vectorMarker(special, mainPoint);
-
+            Point vector2 = Maths.vectorMaker(special, mainPoint);
             ar += Maths.vectorMulty(vector1, vector2) / 2.00;
         }
         System.out.printf("The figure area is %.2f\n", ar);

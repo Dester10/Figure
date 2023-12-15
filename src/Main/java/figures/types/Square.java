@@ -38,6 +38,7 @@ public class Square extends Polygon {
             side = Math.min(lengthMin, lengthMax);
             return super.checkOfValid();
         }
+
         System.out.println("The figure is invalid");
         return false;
     }

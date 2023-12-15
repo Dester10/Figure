@@ -2,9 +2,7 @@ package Main.java.figures.types;
 
 import Main.java.figures.auxiliary.Maths;
 import Main.java.figures.auxiliary.Point;
-
 import java.util.ArrayList;
-
 import static java.lang.Math.PI;
 
 public class TruncatedSphere extends Figure {
