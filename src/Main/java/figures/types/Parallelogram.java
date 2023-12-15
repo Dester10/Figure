@@ -1,6 +1,6 @@
 package Main.java.figures.types;
 
-import  Main.java.figures.auxiliary.Point;
+import Main.java.figures.auxiliary.Point;
 import Main.java.figures.auxiliary.Maths;
 import Main.java.figures.consts.Consts;
 import java.util.ArrayList;
